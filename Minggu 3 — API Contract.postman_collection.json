@@ -1,0 +1,154 @@
+{
+  "info": {
+    "_postman_id": "10e0775c-dd2b-4ae6-bb30-cd6b652b6919",
+    "name": "Minggu 3 — API Contract",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58142689",
+    "_collection_link": "https://go.postman.co/collection/58142689-10e0775c-dd2b-4ae6-bb30-cd6b652b6919?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "List [Resource]",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/books;",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "books;"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": ""
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "text",
+          "header": null,
+          "cookie": [],
+          "body": "{\r\n  \"data\": [\r\n    {\r\n      \"id\": 15,\r\n      \"title\": \"Clean Code\",\r\n      \"isbn\": \"9780132350884\",\r\n      \"available\": true\r\n    }\r\n  ]\r\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create [Resource]",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/books;",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "books;"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "text",
+          "header": null,
+          "cookie": [],
+          "body": "{\r\n  \"data\": {\r\n    \"id\": 15,\r\n    \"title\": \"Clean Code\",\r\n    \"isbn\": \"9780132350884\",\r\n    \"author_id\": 3,\r\n    \"available\": true,\r\n    \"created_at\": \"2026-09-25T09:30:00Z\"\r\n  }\r\n}"
+        },
+        {
+          "name": "404 Not Found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "text",
+          "header": null,
+          "cookie": [],
+          "body": "{\r\n  \"message\": \"Book not found\",\r\n  \"errors\": null\r\n}"
+        },
+        {
+          "name": "422 Validation Error",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "status": "Validation Error",
+          "code": 422,
+          "_postman_previewlanguage": "text",
+          "header": null,
+          "cookie": [],
+          "body": "{\r\n  \"message\": \"The given data was invalid.\",\r\n  \"errors\": {\r\n    \"title\": [\r\n      \"The title field is required.\"\r\n    ],\r\n    \"isbn\": [\r\n      \"The isbn has already been taken.\"\r\n    ]\r\n  }\r\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "http://127.0.0.1:8000/api",
+      "value": ""
+    }
+  ]
+}
